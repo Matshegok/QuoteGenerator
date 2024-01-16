@@ -1,0 +1,20 @@
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+.app{
+    display: flex; 
+    flex-direction: column;
+    height: 100vh; 
+    width: 100vw;
+    justify-content: center;  
+    align-items: center;
+    gap: 20px; 
+}
+
+.centered-h1 {
+    position: relative;
+    top: calc(-0vh); 
+}

@@ -1,16 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css';
 import ButtonComponent from './components/button.jsx'; 
+import Quote from './components/Quote.jsx'; 
+import { Heading } from '@chakra-ui/react'; 
+
 
 function App() {
   return (
     <>
       <div className="app"> 
-        <h1 className="centered-h1">Simple Quote Generator</h1>
-        <h2 className="Quote">"quote"</h2>
-        <h2 className="Quote">- Quote Author</h2>
+        <Heading as='h1' size='4xl' noOfLines={1}>Random Quote Generator</Heading>
+        <Quote />
         <ButtonComponent />
-      </div>
+       </div>
     </>
   )
 }

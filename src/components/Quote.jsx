@@ -9,23 +9,28 @@ function Quote(){
     const [error, setError] = useState(null);
     const [quote, setQuote] = useState(null); 
     const [author, setAuthor] = useState(null); 
+    
+    const api = import.meta.env.VITE_API_KEY
+  
+
 
     useEffect(() => {
         const fetchData = async () => {
           try {
-
-
-            //You can create an account on API ninjas to get a personal API key. Use the Link in apiUrl
-            const apiKey = 'my_api';
+            //You can create an account on API ninjas to get a personal API key. Use the Link in apiUrl 
+            const apiKey = import.meta.env.VITE_API_KEY
             const apiUrl = 'https://api.api-ninjas.com/v1/quotes?category=success'; 
+            
 
             const response = await fetch(apiUrl, {
                 method: 'GET',
                 headers: {
-                  'X-API-Key': `${apiKey}`,
-                  'Content-Type': 'application/json',
+                  'X-API-Key': api,
+                  'Content-Type':'application/json',
                 },
             }); 
+
+            console.log(import.meta.env.API_KEY)
 
             if (!response.ok) {
               throw new Error('Network response was not ok');
@@ -44,7 +49,6 @@ function Quote(){
     
         fetchData();
       }, [setData, setQuote, setAuthor, setError]);
-
 
       return (
         <div>

@@ -3,7 +3,6 @@ import { Button, ButtonGroup } from '@chakra-ui/react'
 
 function ButtonComponent() {
 
-
   function refreshPage(){
     window.location.reload(false)
   }

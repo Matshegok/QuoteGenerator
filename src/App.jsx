@@ -11,7 +11,7 @@ function App() {
     <>
       <div className="app"> 
         <Heading as='h1' size='4xl' noOfLines={1}>Random Quote Generator</Heading>
-        <Quote />
+        <Quote theme="happiness"/>
         <ButtonComponent />
         <Heading as='h2' size='xl'>Choose your quote theme below</Heading>
         <RefreshButtons />

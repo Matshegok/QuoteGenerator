@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Text } from '@chakra-ui/react'
 
 
-function Quote(){
+function Quote({theme}){
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [quote, setQuote] = useState(null); 
@@ -19,7 +19,7 @@ function Quote(){
           try {
             //You can create an account on API ninjas to get a personal API key. Use the Link in apiUrl 
             const apiKey = import.meta.env.VITE_API_KEY
-            const apiUrl = 'https://api.api-ninjas.com/v1/quotes?category=success'; 
+            const apiUrl = `https://api.api-ninjas.com/v1/quotes?category=${theme}`; 
             
 
             const response = await fetch(apiUrl, {

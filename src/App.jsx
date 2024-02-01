@@ -24,10 +24,8 @@ function App() {
     <>
       <div className="app"> 
         <Heading as='h1' size='4xl' noOfLines={1}>Random Quote Generator</Heading>
-        <Quote theme="happiness"/>
+        <Quote quote={quote} author={author} error={error}/>
         <ThemeComp setData={setData} setError={setError} setQuote={setQuote} setAuthor={setAuthor} setUrl={setUrl}/>
-
-
       </div>
     </>
   )

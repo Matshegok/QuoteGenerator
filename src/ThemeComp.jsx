@@ -3,21 +3,17 @@ import { Heading } from '@chakra-ui/react';
 import { Button, ButtonGroup } from '@chakra-ui/react';
 import { useEffect, useState } from 'react'
 
-function ThemeComp(){
+function ThemeComp({setData, setError, setQuote, setAuthor, setUrl}){
 
-    //state variables that will hold the quote data upon API get request
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
-    const [quote, setQuote] = useState(null); 
-    const [author, setAuthor] = useState(null); 
 
     //api key
     const api = import.meta.env.VITE_API_KEY
 
     //function to fetch the data from the API
-    const fetchData = async () => {
+    const fetchData = async (theme) => {
         try {
-            const apiUrl = `https://api.api-ninjas.com/v1/quotes?category=happiness`; //I will change the API theme after this 
+            const apiUrl = `https://api.api-ninjas.com/v1/quotes?category=${theme}`; //I will change the API theme after this 
+            setUrl(apiUrl)
         
             //http get request 
             const response = await fetch(apiUrl, {
@@ -38,9 +34,7 @@ function ThemeComp(){
             //setting the state variables to the result 
             setData(result);
             setQuote(result[0]["quote"]); 
-            setAuthor(result[0]["author"]); 
-            console.log(quote); 
-            console.log(author); 
+            setAuthor(result[0]["author"]);  
         }
         
         catch (err) {
@@ -54,10 +48,10 @@ function ThemeComp(){
             <Heading as='h2' size='xl'>Choose your quote theme below</Heading>
 
             <ButtonGroup gap='3'>
-              <Button colorScheme='green' size='lg' onClick={fetchData}>Success</Button>
-              <Button colorScheme='blue' size='lg' onClick={fetchData}>Attitude</Button>
-              <Button colorScheme='red' size='lg' onClick={fetchData}>Love</Button>
-              <Button colorScheme='yellow' size='lg' onClick={fetchData}>Life</Button>
+              <Button colorScheme='green' size='lg' onClick={()=>{fetchData("success")}}>Success</Button>
+              <Button colorScheme='blue' size='lg' onClick={()=> {fetchData("attitude")}}>Attitude</Button>
+              <Button colorScheme='red' size='lg' onClick={()=>{fetchData("love")}}>Love</Button>
+              <Button colorScheme='yellow' size='lg' onClick={()=>{fetchData("life")}}>Life</Button>
             </ButtonGroup>
         </> 
     )

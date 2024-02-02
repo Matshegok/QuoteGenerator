@@ -6,8 +6,13 @@ import { useEffect, useState } from 'react'
 function ThemeComp({setData, setError, setQuote, setAuthor, setUrl}){
 
 
-    //api key
+    //Add your custom API key below 
+    //const api = 
+
+    //My API key --> delete this after adding your API key above
     const api = import.meta.env.VITE_API_KEY
+
+
 
     //function to fetch the data from the API
     const fetchData = async (theme) => {
@@ -46,7 +51,6 @@ function ThemeComp({setData, setError, setQuote, setAuthor, setUrl}){
     return (
         <>
             <Heading as='h2' size='xl'>Choose your quote theme below</Heading>
-
             <ButtonGroup gap='3'>
               <Button colorScheme='green' size='lg' onClick={()=>{fetchData("success")}}>Success</Button>
               <Button colorScheme='blue' size='lg' onClick={()=> {fetchData("attitude")}}>Attitude</Button>
